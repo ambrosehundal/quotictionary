@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from quotes import views
+from .api import QuoteApi
 
 urlpatterns = [
-    url('', views.quotes_list),
+    url('api/quotes', QuoteApi.as_view()),
 ]
