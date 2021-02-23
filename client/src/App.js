@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-
+import QuoteForm from './components/quoteform';
+import { Navbar,Nav,NavDropdown,Form,FormControl,Button } from 'react-bootstrap'
 
 const App = props => {
     useEffect(() => {
-        axios.get('/quotes').then(res => setState(res.data))
+        axios.get('/api/quotes').then(res => setState(res.data))
     }, [])
     
 
@@ -13,10 +14,17 @@ console.log(quote);
 return(
     <div>
 
+    <QuoteForm/>
+
     <h4>Quotes collection</h4>
+    
         <p> {JSON.stringify(quote)}</p>
+
+       
     
     </div>
+
+   
 
 
 
