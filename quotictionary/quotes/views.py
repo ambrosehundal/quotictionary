@@ -10,7 +10,15 @@ from quotes.serializers import QuoteSerializer
 @csrf_exempt
 def quotes_list(request):
     if request.method == 'GET':
-        quotes = Quotes.objects.all()
+        quotes = Quotes.objects.filter(category='Productivity')
         serializer = QuoteSerializer(quotes, many=True)
 
         return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        print(request.POST['quote_dict'])
+        category = request.POST['category']
+        description = request.POST['description']
+
+        new_quote = Quotes(category=category, description=description)
+        new_quote.save()
