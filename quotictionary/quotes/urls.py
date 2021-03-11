@@ -3,5 +3,5 @@ from .api import QuoteApi
 import quotes.views as q
 
 urlpatterns = [
-    url('api/quotes', q.quotes_list),
+    url('api/quotes', QuoteApi.as_view()),
 ]

@@ -18,7 +18,15 @@ return(
 
     <h4>Quotes collection</h4>
     
-        <p> {JSON.stringify(quote)}</p>
+        <p> <h3>{quote.map(quotes => <div>
+
+            <h4>{quotes.category}</h4>
+            <p>{quotes.description}</p>
+        
+            
+            
+           
+            </div>)}</h3></p>
 
        
     
